@@ -1,0 +1,160 @@
+!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ PRODUCT DETAILS}}!
+  </h1>
+  <hr/>
+  <div class="container">
+<h3>PRODUCT DETAILS</h3>
+<form [formGroup]="my form" (ngSubmit)="store()">
+  <div class="form-group">
+    <label for="productname">PRODUCT NAME</label>
+    <input type="productname" class="form-control" id="productname" formControlName="productname">
+    <small style="color:red" *ngIf="productname.invalid && productame.touched">*PRODUCT NAME IS REQUIRED</small>
+   </div>
+   <div class = "form-group">
+    <label for = "productbrand">PRODUCT BRAND</label>
+    <input type="productbrand" class="form-control" id="productbrand" formControlName="productbrand">
+   <small style ="color:red" *ngIf="productbrand.invalid && productbrand.touched">* PRODUCT BRAND IS REQUIRED</small>
+  </div>
+  <div class = "form-group">
+    <label for = "product price">PRODUCT PRICE</label>
+    <input type="productprice" class="form-control" id="productprice" formControlName="productprice">
+   <small style ="color:red" *ngIf="productprice.invalid && productprice.touched">* PRODUCT PRICE IS REQUIRED</small>
+  </div>
+  <button class="btn btn-primary" [disabled]="myform.invalid">Submit</button>
+</form>
+</div>
+<div style="margin-top:10px;"
+<div class="productdetails">
+<table class="table">
+<thead class ="thead-light">
+  <tr>
+    <th>PRODUCT NAME</th>
+    <th>PRODUCT BRAND</th>
+    <th>PRODUCT PRICE</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th>{{pname}}</th>
+    <th>{{pbrand}}</th>
+    <th>{{pprice}}</th>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr/>
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,FormsModule,ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+ 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'reactapp';
+  myform:FormGroup;
+  pname:string;
+  pbrand:string;
+  pprice:number;
+
+Constructor(){
+  this.myform=new FormGroup({
+    productname:new FormControl("",[Validators.required]),
+    productbrand:new FormControl("",[Validators.required]),
+    productprice:new FormControl("",[Validators.required]),
+  });
+}
+get name () {
+  return this.myform.get('name');
+
+}
+
+get brand() {
+return this.myform.get('brand');
+
+
+}
+
+get price() {
+return this.myform.get('price');
+
+
+}
+}
+
+!--The content below is only a placeholder and can be replaced.-->
+
+ <div style ="text-align:center">
+
+  <h1>
+    {{ONLINE SHOPPING}}<br/>
+  </h1>
+</div>
+<div>
+
+  <table border ="1" width=""100%>
+    <tr>
+      <td>PRODUCTTTILE</td>
+      <td>PRODUCTPRICE</td>
+      <td>STOCK</td>
+    </tr>
+
+    <tr>
+<td>{{producttitle}}</td>
+<td>{{productprice}}</td>
+<td>{{stock}}</td>
+    </tr>
+  </table>
+ </div>
+
+mport { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  producttitle:string=SAMSUNG;
+  productprice:number=15000;
+stock:number=10;
+}
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,FormsModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
